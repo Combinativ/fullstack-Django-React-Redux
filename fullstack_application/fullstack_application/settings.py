@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', #Django rest framework
+    'frontend', #React Frontend Core app
     'demo_user_content', #sample django app to hold some user generated content like posts and other json data
-    'rest_framework'
     
 ]
 
