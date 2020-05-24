@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "webpack --mode development ./fullstack_application/frontend/src/index.js --output ./fullstack_application/frontend/static/frontend/main.js",
+		"dev": "webpack --mode development --watch ./fullstack_application/frontend/src/index.js --output ./fullstack_application/frontend/static/frontend/main.js",
 		"build": "webpack --mode production ./fullstack_application/frontend/src/index.js --output ./fullstack_application/frontend/static/frontend/main.js"
 	},
 	"repository": {
