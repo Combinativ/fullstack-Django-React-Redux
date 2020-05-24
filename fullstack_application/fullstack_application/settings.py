@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'demo_user_content', #sample django app to hold some user generated content like posts and other json data
+    'rest_framework'
+    
 ]
 
 MIDDLEWARE = [
