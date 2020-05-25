@@ -29,6 +29,7 @@
 		"webpack-cli": "^3.3.11"
 	},
 	"dependencies": {
+		"fetch": "^1.1.0",
 		"proptypes": "^1.1.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",

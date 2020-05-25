@@ -3,15 +3,20 @@ import ReactDOM from "react-dom";
 import Header from "./layout/Header";
 import Dashboard from "./contents/Dashboard";
 import { Segment } from "semantic-ui-react";
+//Redux
+import { Provider } from "react-redux";
+import store from "../redux/store";
 class App extends Component {
 	render() {
 		return (
-			<Fragment>
-				<Header />
-				<Segment attached>
-					<Dashboard />
-				</Segment>
-			</Fragment>
+			<Provider store={store}>
+				<Fragment>
+					<Header />
+					<Segment attached>
+						<Dashboard />
+					</Segment>
+				</Fragment>
+			</Provider>
 		);
 	}
 }
