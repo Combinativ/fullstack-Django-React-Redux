@@ -1,5 +1,6 @@
 import { GET_CONTENTS } from "../actions/types";
 import { DELETE_CONTENT } from "../actions/types";
+import { ADD_CONTENT } from "../actions/types";
 const initialState = {
 	contents: [],
 };
@@ -18,6 +19,11 @@ export default function (state = initialState, action) {
 				contents: state.contents.filter(
 					(content) => content.id !== action.payload
 				),
+			};
+		case ADD_CONTENT:
+			return {
+				...state,
+				contents: [...state.contents, action.payload],
 			};
 		default:
 			return state;
