@@ -58,3 +58,14 @@ Root will be refered to as the directory containing package.json,webpack.config.
 
 - fullstack_application/**fullstack_application**:
   - Django default main application of the project.This holds the wsgi.py, settings.py necessary for a complete Django project.
+
+### Redux Structure:-
+
+The redux source code is maintained inside the _/frontend/src/redux_ directory.
+
+- /actions: contains the Actions for Redux actions necessary for the redux.
+  - contentAction.js: exports action methods for getContent and deleteContent.
+  - types.js: holdes all types of action methods available to the project framework as simple string constant exports.
+- /reducers: Contains the Reducers for the Redux reducers for redux.
+  - contentReducer.js: Reducer switch case for all the actions dispatched from the redux actions.
+- store.js: createStore container.
