@@ -48,8 +48,8 @@ export class Contents extends Component {
 	}
 }
 const mapStateToProps = (state) => ({
-	// we are bringing in the state from the redux state
-	contents: state.contents.contents, //state.contents points to the contentReducer from src/redux/reducers
+	// we are bringing in the store from redux state
+	contents: state.contentReducer.contents, //points to the contentReducer from src/redux/reducers
 });
 export default connect(mapStateToProps, { getContents, deleteContent })(
 	Contents
