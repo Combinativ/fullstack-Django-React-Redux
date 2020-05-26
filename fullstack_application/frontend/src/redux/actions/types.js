@@ -1,1 +1,2 @@
 export const GET_CONTENTS = "GET_CONTENTS";
+export const DELETE_CONTENT = "DELETE_CONTENT";

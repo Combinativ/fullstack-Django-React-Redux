@@ -15,25 +15,25 @@ A full stack application framework built with Django as backend and React as a f
 - Redux(fetch api)
 - Semantic-UI-React
 
-#### Project root:
+#### Project root:-
 
 Root will be refered to as the directory containing package.json,webpack.config.js,Pipfile,README
 
 ---
 
-## Installation:
+## Installation:-
 
-0.  Run _pipenv shell_ from project root to start the python virtual environment.
-1.  Run _pip install -r requirements.txt_ to install python dependencies.
-2.  Run _npm install_ from root of project directory.
-3.  Run _npm run dev_ to start **watchdog** and auto transpiling of the Javascript frontend.
-4.  _cd ./fullstack_application/_
-5.  Run _python manage.py migrate_ to migrate models.
-6.  Run _python manage.py runserver_ to start python wsgi server.
+0. Run _pipenv shell_ from project root to start the python virtual environment.
+1. Run _pip install -r requirements.txt_ to install python dependencies.
+2. Run _npm install_ from root of project directory.
+3. Run _npm run dev_ to start **watchdog** and auto transpiling of the Javascript frontend.
+4. cd ./fullstack*application/*
+5. Run _python manage.py migrate_ to migrate models.
+6. Run _python manage.py runserver_ to start python wsgi server.
 
 ---
 
-## Project framework structure:
+## Project framework structure:-
 
 - The main django app for the application is named as _fullstack_application_ contained in the root of the project directory.
 - The django project fullstack_application directory has the following applications:
