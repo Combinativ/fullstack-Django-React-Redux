@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
 		case ADD_CONTENT:
 			return {
 				...state,
+				//Appending new payload with existing state.contents
 				contents: [...state.contents, action.payload],
 			};
 		default:
