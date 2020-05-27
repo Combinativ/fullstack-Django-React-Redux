@@ -1,6 +1,7 @@
 import { GET_CONTENTS } from "../actions/types";
 import { DELETE_CONTENT } from "../actions/types";
 import { ADD_CONTENT } from "../actions/types";
+
 const initialState = {
 	contents: [],
 };

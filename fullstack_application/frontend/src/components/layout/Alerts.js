@@ -8,17 +8,21 @@ export class Alerts extends Component {
 		error: PropTypes.object.isRequired,
 		message: PropTypes.object.isRequired,
 	};
+
 	componentDidUpdate(prevProps) {
-		const { error, alert, message } = this.props;
+		const { error, alert, message } = this.props; // fetching specific params from props
+		//Error alert display connected via errorReducer
 		if (error !== prevProps.error) {
+			//if error message updates then
 			if (error.msg.name) alert.error(`Name: ${error.msg.name.join()}`); //django returns an array as a response hence using join() to convert it to string
 			if (error.msg.email) alert.error(`Email: ${error.msg.email.join()}`);
 			if (error.msg.message)
 				alert.error(`message: ${error.msg.message.join()}`);
 		}
+		//Message alert display connected via messageReducer
 		if (message !== prevProps.message) {
-			if (message.deleteContent) alert.success(message.deleteContent);
-			if (message.addedContent) alert.success(message.addedContent);
+			if (message.deleteContent) alert.info(message.deleteContent); //if delete content message is dispatched
+			if (message.addedContent) alert.success(message.addedContent); //if add content message is dispatched
 		}
 	}
 	render() {
@@ -31,4 +35,4 @@ const maStateToProps = (state) => {
 		message: state.messageReducer,
 	};
 };
-export default connect(maStateToProps)(withAlert()(Alerts));
+export default connect(maStateToProps)(withAlert()(Alerts)); // higher order components to wrap Alerts component with withAlert method and connected via Redux method

@@ -22,6 +22,7 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
+				{/* Provider for react-alert package */}
 				<AlertProvider template={AlertTemplate} {...alertOptions}>
 					<Fragment>
 						<Header />
