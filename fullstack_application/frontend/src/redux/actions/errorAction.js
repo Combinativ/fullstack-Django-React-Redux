@@ -2,6 +2,7 @@ import { GET_ERRORS } from "./types";
 //same principle as messagesAction
 export const showError = (err) => {
 	const errors = {
+		//creating error payload
 		msg: err.response.data,
 		status: err.response.status,
 	};

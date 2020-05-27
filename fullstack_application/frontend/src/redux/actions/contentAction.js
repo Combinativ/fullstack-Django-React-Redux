@@ -26,7 +26,7 @@ export const deleteContent = (id) => (dispatch) => {
 		.delete(API_URL + `/${id}/`) //sending delete request via URL param
 		.then((res) => {
 			//call to messageReducer to show alert
-			dispatch(createMessage({ deleteContent: "Content deleted !" })); //createMessage({<Message Payload>})
+			dispatch(createMessage({ deleteContent: "Content deleted !" })); //createMessage({<msg_identifier>:<"msg_body">})
 			//Dispatch to reducer
 			dispatch({
 				type: DELETE_CONTENT, //simple string constant of the same name
@@ -43,7 +43,7 @@ export const addContent = (content) => (dispatch) => {
 		.post(API_URL + `/`, content)
 		.then((res) => {
 			// call for messageReducer to show alert
-			dispatch(createMessage({ addedContent: "Content Added !" })); //createMessage({<Message Payload>})
+			dispatch(createMessage({ addedContent: "Content Added !" })); //createMessage({<msg_identifier>:<"msg_body">})
 			//dispatch to reducer
 			dispatch({
 				type: ADD_CONTENT, //simple string constant of the same name
