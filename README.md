@@ -38,12 +38,19 @@ Root will be refered to as the directory containing package.json,webpack.config.
 - The main django app for the application is named as _fullstack_application_ contained in the root of the project directory.
 - The django project fullstack_application directory has the following applications:
 
+  - accounts: Contains logic for LoginAPI,RegisterAPI,UserAPI.
   - demo_user_content:
     The demo model for storing user content with basic REST api features.
   - frontend:
     React frontend framework core
   - fullstack_application:
     The main application of the project containing wsgi.py and settings.py.
+
+- fullstack_applicatio/**accounts**:
+
+  - api.py: Contains genericAPI views to implement RegisterAPI,LoginAPI,UserAPI
+  - serializer.py: Corresponding serializers for the aformentioned APIs.
+  - urls.py: API endpoints for RegisterAPI,LoginAPI,UserAPI and django_knox endpoint for Logout.
 
 - fullstack_application/**demo_user_content**:
 
