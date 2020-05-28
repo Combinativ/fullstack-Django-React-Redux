@@ -1,9 +1,17 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
+import {
+	HashRouter as Router,
+	Route,
+	Switch,
+	Redirect,
+} from "react-router-dom";
 
 import Header from "./layout/Header";
 import Alerts from "./layout/Alerts";
 import Dashboard from "./contents/Dashboard";
+import Login from "./accounts/Login";
+import Register from "./accounts/Register";
 import { Segment } from "semantic-ui-react";
 
 import { Provider as AlertProvider } from "react-alert"; // Alert provider
@@ -24,13 +32,19 @@ class App extends Component {
 			<Provider store={store}>
 				{/* Provider for react-alert package */}
 				<AlertProvider template={AlertTemplate} {...alertOptions}>
-					<Fragment>
-						<Header />
-						<Alerts />
-						<Segment attached>
-							<Dashboard />
-						</Segment>
-					</Fragment>
+					<Router>
+						<Fragment>
+							<Header />
+							<Alerts />
+							<Segment attached>
+								<Switch>
+									<Route exact path="/" component={Dashboard} />
+									<Route exact path="/login" component={Login} />
+									<Route exact path="/register" component={Register} />
+								</Switch>
+							</Segment>
+						</Fragment>
+					</Router>
 				</AlertProvider>
 			</Provider>
 		);
