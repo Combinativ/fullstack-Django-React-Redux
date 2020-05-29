@@ -1,5 +1,6 @@
 import { GET_ERRORS } from "./types";
 //same principle as messagesAction
+//errorReducer is connected with Alerts component
 export const showError = (err) => {
 	const errors = {
 		//creating error payload

@@ -4,13 +4,14 @@ import { DELETE_CONTENT } from "./types";
 import { ADD_CONTENT } from "./types";
 import { showError } from "./errorAction";
 import { createMessage } from "./messagesAction";
+import { tokenConfig } from "./authAction"; // helper method to get Tokenized axios config
 import axios from "axios";
 
 const API_URL = "api/contents";
-export const getContents = () => (dispatch) => {
+export const getContents = () => (dispatch, getState) => {
 	//Fetch content
 	axios
-		.get(API_URL)
+		.get(API_URL, tokenConfig(getState)) //every auth endpoint needs tokenConfig
 		.then((res) => {
 			//dispatch to reducer
 			dispatch({
@@ -21,9 +22,9 @@ export const getContents = () => (dispatch) => {
 		.catch((err) => dispatch(showError(err)));
 };
 //Delete content
-export const deleteContent = (id) => (dispatch) => {
+export const deleteContent = (id) => (dispatch, getState) => {
 	axios
-		.delete(API_URL + `/${id}/`) //sending delete request via URL param
+		.delete(API_URL + `/${id}/`, tokenConfig(getState)) //sending delete request via URL param
 		.then((res) => {
 			//call to messageReducer to show alert
 			dispatch(createMessage({ deleteContent: "Content deleted !" })); //createMessage({<msg_identifier>:<"msg_body">})
@@ -37,10 +38,10 @@ export const deleteContent = (id) => (dispatch) => {
 };
 
 //Add Content
-export const addContent = (content) => (dispatch) => {
+export const addContent = (content) => (dispatch, getState) => {
 	//Fetch content
 	axios
-		.post(API_URL + `/`, content)
+		.post(API_URL + `/`, content, tokenConfig(getState))
 		.then((res) => {
 			// call for messageReducer to show alert
 			dispatch(createMessage({ addedContent: "Content Added !" })); //createMessage({<msg_identifier>:<"msg_body">})
