@@ -1,34 +1,72 @@
 import React, { Component } from "react";
 import { Button, Form, Container } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { login } from "../../redux/actions/authAction";
 export class Login extends Component {
 	state = {
 		username: "",
 		password: "",
 	};
+	static propTypes = {
+		login: PropTypes.func.isRequired,
+		isAuthenticated: PropTypes.bool,
+	};
+	handleOnChange = (e) =>
+		this.setState({
+			[e.target.name]: e.target.value,
+		});
+	handleOnSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state);
+
+		this.props.login(this.state.username, this.state.password);
+	};
 	render() {
+		if (this.props.isAuthenticated) {
+			console.log("yeet to dashboard");
+
+			return <Redirect to="/" />;
+		}
+		const { username, password } = this.state;
 		return (
 			<Container>
 				<Form>
 					<h3>Login</h3>
 					<Form.Group widths="equal">
-						<Form.Input fluid label="Username" placeholder="Username" />
+						<Form.Input
+							name="username"
+							fluid
+							label="Username"
+							placeholder="Username"
+							onChange={this.handleOnChange}
+							value={username}
+						/>
 						<Form.Input
 							fluid
+							name="password"
 							label="Password"
 							placeholder="Password"
 							type="password"
+							onChange={this.handleOnChange}
+							value={password}
 						/>
 					</Form.Group>
 					<p>
 						Register a user?
 						<Link to="/register"> register</Link>
 					</p>
-					<Button type="submit">Submit</Button>
+					<Button onClick={this.handleOnSubmit} type="submit">
+						Submit
+					</Button>
 				</Form>
 			</Container>
 		);
 	}
 }
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.authReducer.isAuthenticated,
+});
 
-export default Login;
+export default connect(mapStateToProps, { login })(Login);
