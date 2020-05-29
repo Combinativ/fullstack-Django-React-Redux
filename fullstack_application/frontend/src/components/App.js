@@ -21,6 +21,7 @@ import DarkAlertTemplate from "react-alert-template-oldschool-dark";
 //Redux
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import { loadUser } from "../redux/actions/authAction";
 
 //Alert Options
 const alertOptions = {
@@ -28,6 +29,9 @@ const alertOptions = {
 	position: "bottom center",
 };
 class App extends Component {
+	componentDidMount() {
+		store.dispatch(loadUser());
+	}
 	render() {
 		return (
 			<Provider store={store}>
