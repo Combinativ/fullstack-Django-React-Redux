@@ -76,9 +76,11 @@ The redux source code is maintained inside the _/frontend/src/redux_ directory.
 - /actions: contains the Actions for Redux actions necessary for the redux.
   - contentAction.js: exports action methods for getContent,deleteContent,addContent.
   - messagesAction.js: exports action method createMessage to dispatch Alert messages implemented using react-alert provider.
+  - authActions.js: exports action methods for every action related to implement basic Token based authentication.
   - types.js: holdes all types of redux action methods available to the project framework as simple string constant exports.
 - /reducers: Contains the Reducers for the Redux reducers for redux.
   - contentReducer.js: Reducer switch case for all the actions dispatched from the redux actions.
   - messageReducer.js: Reducer to handle application related messages to show Alerts.
   - errorReducer.js: Reducer to parse Django server response messages to show Alerts.
+  - authReducer.js: Reducer to aid dispatch called from authActions.
 - store.js: createStore container.
