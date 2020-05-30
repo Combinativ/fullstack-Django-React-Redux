@@ -21,7 +21,7 @@ export class Contents extends Component {
 						<Table.Row>
 							<Table.HeaderCell>ID</Table.HeaderCell>
 							<Table.HeaderCell>Name</Table.HeaderCell>
-							<Table.HeaderCell>Email</Table.HeaderCell>
+
 							<Table.HeaderCell>Message</Table.HeaderCell>
 							<Table.HeaderCell>Action</Table.HeaderCell>
 						</Table.Row>
@@ -31,7 +31,6 @@ export class Contents extends Component {
 							<Table.Row key={content.id}>
 								<Table.Cell>{content.id}</Table.Cell>
 								<Table.Cell>{content.name}</Table.Cell>
-								<Table.Cell>{content.email}</Table.Cell>
 								<Table.Cell>{content.message}</Table.Cell>
 								<Table.Cell selectable negative>
 									<a

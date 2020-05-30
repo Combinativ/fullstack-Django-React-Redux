@@ -8,7 +8,6 @@ import { addContent } from "../../redux/actions/contentAction";
 export class AddForm extends Component {
 	state = {
 		name: "",
-		email: "",
 		message: "",
 	};
 	static propTypes = {
@@ -19,12 +18,12 @@ export class AddForm extends Component {
 	};
 	handleOnSubmit = (e) => {
 		e.preventDefault();
-		const { name, email, message } = this.state;
-		const content = { name, email, message }; //constructing the payload
+		const { name, message } = this.state;
+		const content = { name, message }; //constructing the payload
 		this.props.addContent(content);
 	};
 	render() {
-		const { name, email, message } = this.state;
+		const { name, message } = this.state;
 		return (
 			<Form>
 				<h1>Add Content</h1>
@@ -35,15 +34,6 @@ export class AddForm extends Component {
 						onChange={this.handleOnchange}
 						name="name"
 						placeholder="Full Name"
-					/>
-				</Form.Field>
-				<Form.Field>
-					<label>Email</label>
-					<input
-						value={email}
-						onChange={this.handleOnchange}
-						name="email"
-						placeholder="Email"
 					/>
 				</Form.Field>
 				<Form.Field>
