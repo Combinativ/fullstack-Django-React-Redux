@@ -1,6 +1,6 @@
 # Fullstack Django React Redux
 
-A full stack application framework built with Django as backend and React as a frontend(django app) with REST api callbacks that are managed with Redux.
+A fullstack application framework built with Django as backend and React as a frontend(django app) with REST api callbacks that are managed with Redux.
 
 ---
 
@@ -12,7 +12,8 @@ A full stack application framework built with Django as backend and React as a f
 - Babel: core, loader, preset-env, preset-react
 - Webpack
 - React
-- Redux(axios api)
+- Redux
+- Axios
 - Semantic-UI-React
 
 #### Project root:-
@@ -46,7 +47,7 @@ Root will be refered to as the directory containing package.json,webpack.config.
   - fullstack_application:
     The main application of the project containing wsgi.py and settings.py.
 
-- fullstack_applicatio/**accounts**:
+- fullstack_application/**accounts**:
 
   - api.py: Contains genericAPI views to implement RegisterAPI,LoginAPI,UserAPI
   - serializer.py: Corresponding serializers for the aformentioned APIs.
