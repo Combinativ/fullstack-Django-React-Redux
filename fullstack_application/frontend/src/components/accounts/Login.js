@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { login } from "../../redux/actions/authAction";
 export class Login extends Component {
 	state = {
-		username: "",
+		email: "",
 		password: "",
 	};
 	static propTypes = {
@@ -21,7 +21,7 @@ export class Login extends Component {
 		e.preventDefault();
 		console.log(this.state);
 
-		this.props.login(this.state.username, this.state.password);
+		this.props.login(this.state.email, this.state.password);
 	};
 	render() {
 		if (this.props.isAuthenticated) {
@@ -29,19 +29,19 @@ export class Login extends Component {
 
 			return <Redirect to="/" />;
 		}
-		const { username, password } = this.state;
+		const { email, password } = this.state;
 		return (
 			<Container>
 				<Form>
 					<h3>Login</h3>
 					<Form.Group widths="equal">
 						<Form.Input
-							name="username"
+							name="email"
 							fluid
-							label="Username"
-							placeholder="Username"
+							label="Email"
+							placeholder="Email"
 							onChange={this.handleOnChange}
-							value={username}
+							value={email}
 						/>
 						<Form.Input
 							fluid

@@ -31,7 +31,7 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 //Login User
-export const login = (username, password) => (dispatch) => {
+export const login = (email, password) => (dispatch) => {
 	//Headers
 	const config = {
 		headers: {
@@ -39,7 +39,7 @@ export const login = (username, password) => (dispatch) => {
 		},
 	};
 	//Request body
-	let body = { username, password };
+	let body = { email, password };
 	axios
 		.post(API_URL + "login", body)
 		.then((res) => {

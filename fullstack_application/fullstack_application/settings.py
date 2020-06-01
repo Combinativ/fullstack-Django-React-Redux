@@ -37,15 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', #Django rest framework
-    'knox',#Django Knox
-    'frontend', #React Frontend Core app
-    'demo_user_content', #sample django app to hold some user generated content like posts and other json data
-    'accounts' #model for user accounts
-    
+    'rest_framework',  # Django rest framework
+    'knox',  # Django Knox
+    'frontend',  # React Frontend Core app
+    # sample django app to hold some user generated content like posts and other json data
+    'demo_user_content',
+    'accounts'  # model for user accounts
+
 ]
-REST_FRAMEWORK={
-    'DEFAULT_AUTHENTICATION_CLASSES':('knox.auth.TokenAuthentication',)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,3 +127,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'accounts.CustomUser'
