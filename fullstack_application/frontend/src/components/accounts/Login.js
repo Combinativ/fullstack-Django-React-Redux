@@ -31,14 +31,13 @@ export class Login extends Component {
 		}
 		const { email, password } = this.state;
 		return (
-			<Container>
-				<Form>
-					<h3>Login</h3>
-					<Form.Group widths="equal">
+			<Container style={{ marginTop: '2%' }}>
+				<Form style={{maxWidth: '600px', margin: 'auto'}}>
+						<h1>Login</h1>
 						<Form.Input
 							name="email"
 							fluid
-							label="Email"
+							label={<label style={{color: 'grey'}}>Email</label>}
 							placeholder="Email"
 							onChange={this.handleOnChange}
 							value={email}
@@ -46,20 +45,21 @@ export class Login extends Component {
 						<Form.Input
 							fluid
 							name="password"
-							label="Password"
+							label={<label style={{color: 'grey'}}>Password</label>}
 							placeholder="Password"
 							type="password"
 							onChange={this.handleOnChange}
 							value={password}
 						/>
-					</Form.Group>
-					<p>
-						Register a user?
-						<Link to="/register"> register</Link>
-					</p>
-					<Button onClick={this.handleOnSubmit} type="submit">
-						Submit
-					</Button>
+					<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '6%'}}>
+						<p>
+							Register a user?
+							<Link to="/register"> register</Link>
+						</p>
+						<Button onClick={this.handleOnSubmit} type="submit" color='teal'>
+							Submit
+						</Button>
+					</div>
 				</Form>
 			</Container>
 		);

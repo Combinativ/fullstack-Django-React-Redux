@@ -14,14 +14,13 @@ export class Contents extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div style={{marginTop: '6%'}}>
 				<h1>Content List</h1>
-				<Table celled unstackable>
+				<Table celled unstackable inverted>
 					<Table.Header>
 						<Table.Row>
 							<Table.HeaderCell>ID</Table.HeaderCell>
 							<Table.HeaderCell>Name</Table.HeaderCell>
-
 							<Table.HeaderCell>Message</Table.HeaderCell>
 							<Table.HeaderCell>Action</Table.HeaderCell>
 						</Table.Row>
@@ -29,16 +28,11 @@ export class Contents extends Component {
 					<Table.Body>
 						{this.props.contents.map((content) => (
 							<Table.Row key={content.id}>
-								<Table.Cell>{content.id}</Table.Cell>
-								<Table.Cell>{content.name}</Table.Cell>
-								<Table.Cell>{content.message}</Table.Cell>
-								<Table.Cell selectable negative>
-									<a
-										href="#"
-										onClick={this.props.deleteContent.bind(this, content.id)}
-									>
-										Delete
-									</a>
+								<Table.Cell width={1}>{content.id}</Table.Cell>
+								<Table.Cell width={4}>{content.name}</Table.Cell>
+								<Table.Cell width={7}>{content.message}</Table.Cell>
+								<Table.Cell width={2} selectable onClick={this.props.deleteContent.bind(this, content.id)}>
+									<a style={{color: 'grey'}}>Click to Delete</a>
 								</Table.Cell>
 							</Table.Row>
 						))}

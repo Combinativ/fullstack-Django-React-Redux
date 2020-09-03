@@ -25,10 +25,11 @@ export class AddForm extends Component {
 	render() {
 		const { name, message } = this.state;
 		return (
-			<Form>
+			<Form style={{marginTop: '5%'}}>
 				<h1>Add Content</h1>
-				<Form.Field>
-					<label>Name</label>
+				<Form.Group>
+				<Form.Field width={4}>
+					<label style={{color: 'grey'}}>Name</label>
 					<input
 						value={name}
 						onChange={this.handleOnchange}
@@ -36,8 +37,8 @@ export class AddForm extends Component {
 						placeholder="Full Name"
 					/>
 				</Form.Field>
-				<Form.Field>
-					<label>Message</label>
+				<Form.Field width={8}>
+					<label style={{color: 'grey'}}>Message</label>
 					<input
 						value={message}
 						onChange={this.handleOnchange}
@@ -45,9 +46,13 @@ export class AddForm extends Component {
 						placeholder="Message"
 					/>
 				</Form.Field>
-				<Button onClick={this.handleOnSubmit} type="submit">
+				<Form.Field width={4}>
+				<label style={{color: 'grey'}}>Add message</label>
+				<Button onClick={this.handleOnSubmit} color='teal' type="submit">
 					Submit
 				</Button>
+				</Form.Field>
+				</Form.Group>
 			</Form>
 		);
 	}

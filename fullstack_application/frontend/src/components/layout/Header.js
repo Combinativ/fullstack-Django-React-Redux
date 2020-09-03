@@ -30,7 +30,7 @@ export class Header extends Component {
 					</UIHeader>
 				</Menu.Item>
 				<Menu.Item>
-					<Button onClick={this.handleOnLogout} negative>
+					<Button circular compact onClick={this.handleOnLogout} negative>
 						Logout
 					</Button>
 				</Menu.Item>
@@ -55,14 +55,12 @@ export class Header extends Component {
 			</Menu.Menu>
 		);
 		return (
-			<Segment inverted>
-				<Menu stackable size="massive" inverted pointing secondary>
+				<Menu stackable size="massive" style={{backgroundColor: '#212121'}} inverted pointing secondary>
 					<Menu.Item header as={Link} to="/">
 						FullStAck
 					</Menu.Item>
 					{isAuthenticated ? authLinks : guestLinks}
 				</Menu>
-			</Segment>
 		);
 	}
 }

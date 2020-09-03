@@ -35,48 +35,48 @@ export class Register extends Component {
 	render() {
 		if (this.props.isAuthenticated) return <Redirect to="/" />;
 		return (
-			<Container>
-				<Form>
-					<h3>Register</h3>
-					<Form.Group widths="equal">
-						<Form.Input
-							onChange={this.handleOnChange}
-							fluid
-							name="username"
-							label="Username"
-							placeholder="Username"
-						/>
-						<Form.Input
-							onChange={this.handleOnChange}
-							fluid
-							name="email"
-							label="Email"
-							placeholder="Email"
-						/>
-						<Form.Input
-							onChange={this.handleOnChange}
-							fluid
-							label="Password"
-							placeholder="Password"
-							type="password"
-							name="password"
-						/>
-						<Form.Input
-							onChange={this.handleOnChange}
-							fluid
-							label="Confirm Password"
-							placeholder="Confirm Password"
-							type="password"
-							name="password2"
-						/>
-					</Form.Group>
-					<p>
-						Already a user?
-						<Link to="/login"> login</Link>
-					</p>
-					<Button onClick={this.handleOnSubmit} type="submit">
-						Submit
-					</Button>
+			<Container style={{ marginTop: '2%' }}>
+				<Form style={{maxWidth: '600px', margin: 'auto'}}>
+					<h1>Register</h1>
+					<Form.Input
+						onChange={this.handleOnChange}
+						fluid
+						name="username"
+						label={<label style={{color: 'grey'}}>Username</label>}
+						placeholder="Username"
+					/>
+					<Form.Input
+						onChange={this.handleOnChange}
+						fluid
+						name="email"
+						label={<label style={{color: 'grey'}}>Email</label>}
+						placeholder="Email"
+					/>
+					<Form.Input
+						onChange={this.handleOnChange}
+						fluid
+						label={<label style={{color: 'grey'}}>Password</label>}
+						placeholder="Password"
+						type="password"
+						name="password"
+					/>
+					<Form.Input
+						onChange={this.handleOnChange}
+						fluid
+						label={<label style={{color: 'grey'}}>Confirm Password</label>}
+						placeholder="Confirm Password"
+						type="password"
+						name="password2"
+					/>
+					<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '6%'}}>
+						<p>
+							Already a user?
+							<Link to="/login"> login</Link>
+						</p>
+						<Button onClick={this.handleOnSubmit} color='teal' type="submit">
+							Submit
+						</Button>
+					</div>
 				</Form>
 			</Container>
 		);
