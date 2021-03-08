@@ -84,18 +84,18 @@ WSGI_APPLICATION = 'fullstack_application.wsgi.application'
 
 DATABASES = {
 
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-    # 'default':{
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'postgre',
-    #     'HOST': 'database-1.cluster-cak9okpx2umn.ap-south-1.rds.amazonaws.com',
-    #     'PORT': '5432',
-    #     'USER': 'mqrvqtdjexndlj',
-    #     'PASSWORD': 'c1549be69de56be0330602e54264d83c2c8fb61bb5fea204cba6c6af5a4ae48c',
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgre',
+        'HOST': 'database-1.cluster-cak9okpx2umn.ap-south-1.rds.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'mqrvqtdjexndlj',
+        'PASSWORD': 'c1549be69de56be0330602e54264d83c2c8fb61bb5fea204cba6c6af5a4ae48c',
+    }
 }
 
 
