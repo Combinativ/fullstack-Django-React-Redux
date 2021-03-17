@@ -13,7 +13,7 @@ class Command(BaseCommand):
         if User.objects.filter(username="admin").exists():
             print("admin exists")
         else:
-            u = User(username='admin')
+            u = User(username='admin',email='admin@admin.com')
             u.set_password('adminpass')
             u.is_superuser = True
             u.is_staff = True

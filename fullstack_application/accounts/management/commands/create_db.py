@@ -1,15 +1,15 @@
 import sys
 import logging
-import psycopg2 as MySQLdb
+import pymysql as MySQLdb
 
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
 rds_host = 'database-1.cluster-cak9okpx2umn.ap-south-1.rds.amazonaws.com'
-db_name = 'boiler_db'
+db_name = 'testdb'
 user_name = 'mqrvqtdjexndlj'
-password = 'c1549be69de56be0330602e54264d83c2c8fb61bb5fea204cba6c6af5a4ae48c'
-port = 5432
+password = 'ZVt1op37FmP98uWdmnnK'
+port = 3306
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
