@@ -1,5 +1,6 @@
 from demo_user_content.models import DemoUserContent
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
+from rest_framework.response import Response
 from .serializers import DemoUserContentSerializer
 
 # demo user content viewset
@@ -18,3 +19,10 @@ class DemoUserContentViewset(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+class ApiTesterView(generics.RetrieveAPIView):
+    # queryset=None
+    def post(self,request):
+        return Response({
+            "hello"
+        })

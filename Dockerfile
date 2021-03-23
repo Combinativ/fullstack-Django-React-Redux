@@ -6,8 +6,8 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
-ENTRYPOINT ["python", "fullstack_application/manage.py"]
-CMD ["runserver", "0.0.0.0:8800"]
+# ENTRYPOINT ["python", "fullstack_application/manage.py"]
+# CMD ["runserver", "0.0.0.0:8800"]
 
 # COPY start.sh /code/           #  to copy the script
-# ENTRYPOINT ["/code/start.sh"] 
+ENTRYPOINT ["/code/start.sh"] 

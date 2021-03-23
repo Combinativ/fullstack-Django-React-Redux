@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'fullstack_application.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-import pymysql
+#import pymysql
 DATABASES = {
 
     'default': {
@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
     # 'default':{
-    #     'ENGINE': 'django.db.backends.mysql',
+    #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'testdb',
     #     'HOST': 'database-1.cluster-cak9okpx2umn.ap-south-1.rds.amazonaws.com',
     #     'PORT': '5432',

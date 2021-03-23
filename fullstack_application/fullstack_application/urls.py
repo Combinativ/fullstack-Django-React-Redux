@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('frontend.urls')),
-    path('',include('demo_user_content.urls')),
-    path('',include('accounts.urls')),
+    path('admin/', admin.site.urls), #Serves the admin url
+    # path('',include('frontend.urls')),#serves React frontend  
+    path('',include('demo_user_content.urls')), #serves the  api endpoints
+    path('',include('accounts.urls')), #auth api endpoints
     
 ]
