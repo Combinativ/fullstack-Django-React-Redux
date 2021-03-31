@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # Django rest framework
     'knox',  # Django Knox
-    'frontend',  # React Frontend Core app
+    # 'frontend',  # React Frontend Core app
     # sample django app to hold some user generated content like posts and other json data
     'demo_user_content',
     'accounts'  # model for user accounts
