@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "ap-south-1",
+        "django_settings": "fullstack_application.settings",
+        "profile_name": "default",
+        "project_name": "fullstack-appli",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-o85lvc9st"
+    }
+}

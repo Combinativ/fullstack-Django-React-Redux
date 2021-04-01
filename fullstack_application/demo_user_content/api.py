@@ -1,6 +1,8 @@
 from demo_user_content.models import DemoUserContent
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
+from rest_framework.response import Response
 from .serializers import DemoUserContentSerializer
+from django.http import JsonResponse
 
 # demo user content viewset
 
@@ -18,3 +20,8 @@ class DemoUserContentViewset(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+    
+
+class ApiTestView(generics.RetrieveAPIView):
+    def get(self, request):
+        return Response({"API app says Nyahello.. !!"})

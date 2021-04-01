@@ -25,7 +25,7 @@ SECRET_KEY = 'nb9%#b73jn4v456gr=n9p%t6i9j(k)s)phib1drbgolp-t(j9%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bhjp0cbfwj.execute-api.ap-south-1.amazonaws.com']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # Django rest framework
     'knox',  # Django Knox
-    # 'frontend',  # React Frontend Core app
+    'frontend',  # React Frontend Core app
     # sample django app to hold some user generated content like posts and other json data
     'demo_user_content',
     'accounts'  # model for user accounts
@@ -83,9 +83,18 @@ WSGI_APPLICATION = 'fullstack_application.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd1ktdg9aahifkq',
+        'HOST': 'ec2-34-254-69-72.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'updrbutzzdgokj',
+        'PASSWORD': '57a0ab606eea64229b545bc08348393d55d420aa2c74737210acb7c93ce158e4',
+
     }
 }
 
