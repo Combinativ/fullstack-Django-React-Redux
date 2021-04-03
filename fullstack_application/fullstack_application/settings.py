@@ -25,12 +25,13 @@ SECRET_KEY = 'nb9%#b73jn4v456gr=n9p%t6i9j(k)s)phib1drbgolp-t(j9%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bhjp0cbfwj.execute-api.ap-south-1.amazonaws.com']
+ALLOWED_HOSTS = ['*', 'https://7gp5q0txb6.execute-api.ap-south-1.amazonaws.com/dev']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,11 +45,13 @@ INSTALLED_APPS = [
     'demo_user_content',
     'accounts'  # model for user accounts
 
+
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
 }
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,6 +62,24 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'fullstack_application.urls'
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOWED_ORIGINS = [
+    'https://master.d3pvk9iwwhaz9a.amplifyapp.com',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://master.d3pvk9iwwhaz9a.amplifyapp.com',
+]
+from corsheaders.defaults import default_headers
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+    'Access-Control-Allow-Credentials',
+    'Access-Control-Allow-Methods',
+    'Access-Control-Allow-Headers'
+
+)
 
 TEMPLATES = [
     {
@@ -89,11 +110,12 @@ DATABASES = {
     # },
      'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1ktdg9aahifkq',
-        'HOST': 'ec2-34-254-69-72.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
-        'USER': 'updrbutzzdgokj',
-        'PASSWORD': '57a0ab606eea64229b545bc08348393d55d420aa2c74737210acb7c93ce158e4',
+        'NAME': os.environ['DB_NAME'],
+        # 'HOST': 'ec2-34-254-69-72.eu-west-1.compute.amazonaws.com',
+        'HOST': os.environ['DB_HOST'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD']
 
     }
 }

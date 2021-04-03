@@ -3,10 +3,17 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-
+from accounts.models import CustomUser
 
 class Migration(migrations.Migration):
 
+    def seed_data(apps, schema_editor):
+        user = CustomUser(username='admin',
+                            email='admin@admin.com',
+                            is_staff=True,
+                            is_superuser=True)
+        user.set_password('qwertyuiop')
+        user.save()
     initial = True
 
     dependencies = [
@@ -24,4 +31,5 @@ class Migration(migrations.Migration):
                 ('owner', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='contents', to=settings.AUTH_USER_MODEL)),
             ],
         ),
+        migrations.RunPython(seed_data)
     ]

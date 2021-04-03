@@ -16,12 +16,23 @@ class DemoUserContentViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # returns all the content owned by user
-        return self.request.user.contents.all()
+        return DemoUserContent.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-    
+
+class FetchAllContentViewset(generics.RetrieveAPIView):
+    def get(self, request):
+        return Response(DemoUserContentSerializer(DemoUserContent))
 
 class ApiTestView(generics.RetrieveAPIView):
     def get(self, request):
-        return Response({"API app says Nyahello.. !!"})
+        response = {}
+        response["msg"]= "API app says Nyahello.. !!"
+        # response["Access-Control-Allow-Origin"] = "*"
+        return Response(response)
+        
+class ApiTestView2(generics.CreateAPIView):
+    def post(self,request):
+        response = "Post works fine !!"
+        return Response(response)
